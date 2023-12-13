@@ -1,8 +1,8 @@
 const pool = require("../database/database")
-const postsController = {
+const tukangController = {
     getAll: async (req, res) => {
         try {
-            const [rows, fields] = await pool.query("select * from posts")
+            const [rows, fields] = await pool.query("select * from tukang")
             res.json({
                 data: rows
             })
@@ -16,7 +16,7 @@ const postsController = {
     getById: async (req, res) => {
         try {
             const { id } = req.params
-            const [rows, fields] = await pool.query("select * from posts where id = ?", [id])
+            const [rows, fields] = await pool.query("select * from tukang where id = ?", [id])
             res.json({
                 data: rows
             })
@@ -30,7 +30,7 @@ const postsController = {
     create: async (req, res) => {
         try {
             const { title, content } = req.body
-            const sql = "insert into posts (title, content) values (?, ?)"
+            const sql = "insert into tukang (title, content) values (?, ?)"
             const [rows, fields] = await pool.query(sql, [title, content])
             res.json({
                 data: rows
@@ -46,7 +46,7 @@ const postsController = {
         try {
             const { title, content } = req.body
             const { id } = req.params
-            const sql = "update posts set title = ?, content = ? where id = ?"
+            const sql = "update tukang set title = ?, content = ? where id = ?"
             const [rows, fields] = await pool.query(sql, [title, content, id])
             res.json({
                 data: rows
@@ -61,7 +61,7 @@ const postsController = {
     delete: async (req, res) => {
         try {
             const { id } = req.params
-            const [rows, fields] = await pool.query("delete from posts where id = ?", [id])
+            const [rows, fields] = await pool.query("delete from tukang where id = ?", [id])
             res.json({
                 data: rows
             })
@@ -75,4 +75,4 @@ const postsController = {
 
 }
 
-module.exports = postsController
+module.exports = tukangController
