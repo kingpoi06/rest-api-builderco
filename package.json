@@ -1,7 +1,8 @@
 {
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node index.js"
+        "start": "node index.js",
+        "build": "[my-framework] build --output public"
     },
     "dependencies": {
         "bcrypt": "^5.1.0",
