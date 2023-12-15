@@ -12,7 +12,7 @@ const authRouter = require('./routes/auth-router')
 app.use("/api/v1/tukang", tukangRouter)
 app.use("/api/v1/auth", authRouter)
 
-const PORT = process.env.PORT || 3306
+const PORT = process.env.PORT || 5000
 
 app.listen(PORT, () => {
     console.log("Server is running....")
