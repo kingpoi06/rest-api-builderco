@@ -11,6 +11,7 @@ const authRouter = require('./routes/auth-router')
 
 app.use("/api/v1/tukang", tukangRouter)
 app.use("/api/v1/auth", authRouter)
+app.use(bodyParser.json())
 
 const PORT = process.env.PORT || 5000
 
