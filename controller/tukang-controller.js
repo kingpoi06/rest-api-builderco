@@ -29,9 +29,9 @@ const tukangController = {
     },
     create: async (req, res) => {
         try {
-            const { title, content } = req.body
-            const sql = "insert into tukang (title, content) values (?, ?)"
-            const [rows, fields] = await pool.query(sql, [title, content])
+            const { jasa_pelayanan, image, rating, kota, alamat, deskripsi } = req.body
+            const sql = "insert into tukang (jasa_pelayanan, image, rating, kota, alamat, deskripsi) values (?, ?)"
+            const [rows, fields] = await pool.query(sql, [jasa_pelayanan, image, rating, kota, alamat, deskripsi])
             res.json({
                 data: rows
             })
@@ -44,10 +44,10 @@ const tukangController = {
     },
     update: async (req, res) => {
         try {
-            const { title, content } = req.body
+            const { jasa_pelayanan, image, rating, kota, alamat, deskripsi } = req.body
             const { id } = req.params
-            const sql = "update tukang set title = ?, content = ? where id = ?"
-            const [rows, fields] = await pool.query(sql, [title, content, id])
+            const sql = "update tukang set jasa_pelayanan = ?, image = ?, rating = ?, kota = ?, alamat = ?, deskripsi = ? where id = ?"
+            const [rows, fields] = await pool.query(sql, [jasa_pelayanan, image, rating, kota, alamat, deskripsi, id])
             res.json({
                 data: rows
             })
