@@ -10,6 +10,7 @@ const pool = mysql.createPool({
     connectionLimit: 10,
     queueLimit: 0
 });
+
 pool.getConnection((err, conn) => {
     if(err) console.log(err)
     console.log("Connected successfully")
