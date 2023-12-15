@@ -21,18 +21,9 @@ const images = [
   './images/jasa-renovasi-rumah.jpg'
 ];
 
+
 (async function run() {
 
-  // Example using a simple for loop
-
-  // for ( const image of images ) {
-  //   const result = await cloudinary.uploader.upload(image);
-  //   console.log(`Successfully uploaded ${image}`);
-  //   console.log(`> Result: ${result.secure_url}`);
-  // }
-
-  // Example with paralell uploads and concurrency
-  // Default Cloudinary upload limit for the free tier is 10
   const limit = pLimit(2);
 
   const imagesToUpload = images.map((image) => {
